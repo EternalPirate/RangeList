@@ -21,7 +21,7 @@ class RangeList {
     private static createRange(range: [number, number]): number[] {
         // get start and end of the range
         const start: number = range[RangeBoundaries.start];
-        const end: number = range[RangeBoundaries.end];
+        const end: number = range[RangeBoundaries.end] - 1;
 
 
         const res: number[] = [];
@@ -170,7 +170,7 @@ class RangeList {
     public print(): void {
         let output = '';
         for (const item of this.rangeList) {
-            output += `[${item.key}) `;
+            output += `${item.getRange(item.key)} `;
         }
         console.log(output);
     }
